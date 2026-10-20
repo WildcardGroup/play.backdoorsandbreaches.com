@@ -1,246 +1,226 @@
-<!DOCTYPE html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="icon" href="favicon.ico">
-	
-		<title>B&B Shuffle by Richard Phung/P3hndrx</title>
-	
-		<!-- Bootstrap core CSS -->
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
-		<!-- Custom styles for this template -->
-		<link href="deckPage.css" rel="stylesheet">
-		<style>
-			.fixed-card-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover; /* or 'contain' */
+<!doctype html>
+<!--
+  Backdoors & Breaches online: landing page.
+  Based on the landing page of play.backdoorsandbreaches.com by Black Hills Information Security
+  (https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com, GNU GPL v3; game engine "B&B Shuffle" by Richard Phung/P3hndrx).
+  Modified by Wildcard Group, 18 October 2026: Wildcard Group header, footer and styling; deck choice reduced to
+  the Core Deck V3.1 and the Core Deck plus the Wildcard Group expansion. See MODIFICATIONS.md.
+  Backdoors & Breaches is the property of Black Hills InfoSec.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- prototype: not for indexing until BHIS has agreed to a public Wildcard Group version -->
+<meta name="robots" content="noindex,nofollow">
+<title>Play Backdoors &amp; Breaches online | Wildcard Group</title>
+<meta name="description" content="Play the Backdoors &amp; Breaches incident response card game online, with the Core Deck or with the Wildcard Group expansion shuffled in.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/wildcard.css?v=20261020a">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--teal)}
+a:hover{color:var(--navy)}
+h1,h2,h3{font-family:var(--head);color:var(--navy);margin:0;line-height:1.08}
+h1{font-weight:700;font-size:clamp(34px,5vw,58px);letter-spacing:-.015em}
+h2{font-weight:700;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.01em}
+h3{font-weight:600;font-size:21px;line-height:1.25}
+p{margin:0 0 1em}
+
+.hero{padding:clamp(44px,7vw,84px) 0 clamp(28px,4vw,44px)}
+.hero h1{margin-bottom:20px;max-width:15em}
+.hero .lead{font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:36em;margin:0}
+.hero .meta{margin-top:18px;font-family:var(--head);font-size:14px;color:var(--ink-soft)}
+.hero .lead-bhis{margin:16px 0 0;font-family:var(--head);font-size:16px;line-height:1.5;color:var(--ink-soft);max-width:44em}
+.thanks .bhis-links{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 14px}
+.thanks .bhis-links .btn{font-size:15.5px;padding:11px 18px}
+
+/* deck choice */
+.decks{padding:0 0 clamp(56px,8vw,88px)}
+.deck-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,36px)}
+.deck{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);box-shadow:var(--shadow);transition:box-shadow .18s ease,transform .18s ease}
+.deck:hover{box-shadow:var(--shadow-strong);transform:translateY(-3px)}
+.deck .visual{aspect-ratio:400/290;display:block;position:relative;overflow:hidden;background:var(--pale)}
+.deck .visual img.box{width:100%;height:100%;object-fit:cover;display:block}
+.deck .body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.deck .kicker{font-family:var(--head);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:0}
+.deck p{font-size:17px;margin:0;color:var(--ink)}
+.deck .count{font-family:var(--head);font-size:14px;color:var(--ink-soft)}
+.deck .go{margin-top:auto;padding-top:10px}
+/* the Wildcard deck: three of our cards fanned out, as on /deck */
+.fan img{position:absolute;width:31%;border-radius:8px;box-shadow:0 12px 26px rgba(11,38,65,.24);top:52%;left:50%;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.fan img:nth-child(1){transform:translate(-118%,-50%) rotate(-9deg)}
+.fan img:nth-child(2){transform:translate(-50%,-56%);z-index:2}
+.fan img:nth-child(3){transform:translate(18%,-50%) rotate(9deg)}
+@media (hover:hover){
+  .deck:hover .fan img:nth-child(1){transform:translate(-128%,-48%) rotate(-13deg)}
+  .deck:hover .fan img:nth-child(3){transform:translate(28%,-48%) rotate(13deg)}
 }
-		</style>
-	  </head>
-	
-	  <body>
-	
-		
-	
-		<main role="main">
-	
-		  <section class="jumbotron text-center">
-			<div class="container">
 
-				<a href="https://www.blackhillsinfosec.com/projects/backdoorsandbreaches/"><img class="img-fluid" src="bb-logo.png"></a>
-				
-				
-			  <p class="lead text-muted">Welcome to the Backdoors & Breaches online game! Please choose a deck to begin playing.</p>
-			</div>
-		  </section>
-	
-		  <!-- Core Decks Section -->
-  <section class="text-center">
-    <div class="container">
-      <p class="lead text">Core Deck and Expansions</p>
+/* how the game works */
+.how{background:var(--pale);padding:clamp(52px,7vw,84px) 0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin:32px 0 0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:"0" counter(s);display:block;font-family:var(--head);font-weight:700;font-size:38px;line-height:1;color:transparent;-webkit-text-stroke:1.3px var(--teal);margin-bottom:14px}
+.steps h3{margin-bottom:8px}
+.steps p{font-size:17px;margin:0}
+.how .online{font-family:var(--head);font-size:15.5px;line-height:1.55;margin:30px 0 0;max-width:52em;color:var(--ink-soft)}
+
+/* thanks + attribution */
+.thanks{padding:clamp(44px,6vw,64px) 0;text-align:center}
+.thanks .big{font-family:var(--head);font-weight:600;font-size:clamp(19px,2.2vw,24px);line-height:1.35;max-width:32em;margin:0 auto 10px;color:var(--navy)}
+.thanks .small{font-size:16px;color:var(--ink-soft);margin:0}
+/* the two BHIS logos stacked, ours as tall as both together (Tom, 18/10) */
+.thanks .logos{display:flex;justify-content:center;align-items:center;gap:20px 34px;flex-wrap:wrap;margin-top:28px}
+.thanks .logos img{width:auto;display:block}
+.thanks .stack{display:flex;flex-direction:column;align-items:center;gap:12px}
+/* the BHIS logo files have transparent margins: negative margins crop them, so the visible logos stack to 48 + 12 + 51 = 111 px */
+.thanks .stack .bb img{height:80px;margin:-16px 0}
+.thanks .stack .bh img{height:58px;margin:-3px 0 -4px}
+.thanks .partner{padding-left:34px;border-left:1px solid var(--line)}
+.thanks .partner img{height:111px}
+
+@media (max-width:900px){
+  .deck-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  .deck .body{padding:20px 18px 22px}
+  .deck .go .btn{width:100%;text-align:center}
+  .thanks .logos{gap:16px}
+  .thanks .bhis-links li, .thanks .bhis-links .btn{width:100%;text-align:center}
+  .thanks .stack{gap:8px}
+  .thanks .stack .bb img{height:50px;margin:-10px 0}
+  .thanks .stack .bh img{height:37px;margin:-2px 0}
+  .thanks .partner{padding-left:16px}
+  .thanks .partner img{height:71px}
+}
+@media (prefers-reduced-motion:reduce){.deck,.fan img{transition:none}}
+</style>
+</head>
+<body class="wg">
+
+<header class="nav">
+  <div class="wrap">
+    <a href="https://wildcardgroup.be/" aria-label="Wildcard Group home"><img src="assets/logo-nav.png" alt="Wildcard Group | Digital Guardian"></a>
+    <div class="right">
+      <a class="back" href="https://wildcardgroup.be/"><span class="long">wildcardgroup.be</span><span class="short">Home</span> &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <p class="eyebrow">Backdoors &amp; Breaches &middot; play online</p>
+      <h1 id="h1">Play Backdoors &amp;&nbsp;Breaches in your browser<span class="dot">.</span></h1>
+      <p class="lead">Backdoors &amp; Breaches is the incident response card game by Black Hills Information Security. Pick a deck, deal the attack and play the incident with your team, at the table or on a call.</p>
+      <p class="lead-bhis">Looking for the original? <a href="https://play.backdoorsandbreaches.com/" rel="noopener">The original online game by BHIS</a> has every deck, and <a href="https://home.backdoorsandbreaches.com/" rel="noopener">home.backdoorsandbreaches.com</a> has all about the game.</p>
+      <p class="meta"><span class="proto-flag">Preview</span>&ensp;Test version of <span class="brand">Wildcard Group</span>, not yet public.</p>
     </div>
   </section>
 
-  <div class="container">
-    <div class="row">
-      <!-- Core V3 -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'CoreV3.1');" class="card-link">
-          <div class="card">
-            <img src="BB-Core-V3-1.png" class="card-img-top img-fluid" alt="Core Deck Version 3">
-            <div class="card-body">
-              <h5 class="card-title">Core V3.1</h5>
-            </div>
+  <section class="decks" aria-label="Choose a deck">
+    <div class="wrap">
+      <div class="deck-grid">
+        <article class="deck">
+          <a class="visual" href="play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=CoreV3.1" data-deck="CoreV3.1" tabindex="-1" aria-hidden="true">
+            <img class="box" src="assets/BB-Core-V3-1.png" alt="">
+          </a>
+          <div class="body">
+            <p class="kicker">Core Deck</p>
+            <h2 style="font-size:26px">Core Deck V3.1</h2>
+            <p>The current Backdoors &amp; Breaches Core Deck by BHIS: the attack cards, the Detections and the Injects.</p>
+            <p class="count">52 cards</p>
+            <div class="go"><a class="btn btn-navy" href="play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=CoreV3.1" data-deck="CoreV3.1">Play the Core Deck</a></div>
           </div>
-        </a>
-      </div>
+        </article>
 
-      <!-- Core V2.2 + Expansion -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Expansion1-2');" class="card-link">
-          <div class="card">
-            <img src="BB-expansion.png" class="card-img-top img-fluid" alt="Core Deck Version 2.2 Plus Expansion">
-            <div class="card-body">
-              <h5 class="card-title">Core V3 + Expansion</h5>
-            </div>
+        <article class="deck">
+          <a class="visual fan" href="play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=WildcardGroup" data-deck="WildcardGroup" tabindex="-1" aria-hidden="true">
+            <img src="assets/wg-card-01.png" alt="">
+            <img src="assets/wg-card-04.png" alt="">
+            <img src="assets/wg-card-10.png" alt="">
+          </a>
+          <div class="body">
+            <p class="kicker">Core Deck + expansion</p>
+            <h2 style="font-size:26px">Core V3.1 + Wildcard Group expansion</h2>
+            <p>The Core Deck with our ten cards shuffled in: three new ways in, one new way to move, and six Injects that change the game halfway through.</p>
+            <p class="count">62 cards &middot; made in cooperation with BHIS</p>
+            <div class="go"><a class="btn btn-orange" href="play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=WildcardGroup" data-deck="WildcardGroup">Play with the Wildcard expansion</a></div>
           </div>
-        </a>
+        </article>
       </div>
-
-      <!-- Cloud Security -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Cloud Security');" class="card-link">
-          <div class="card">
-            <img src="BB_Cloud.png" class="card-img-top img-fluid" alt="Cloud Security Expansion Deck">
-            <div class="card-body">
-              <h5 class="card-title">Cloud Security Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Electrical Co-Op -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Electrical-Co-Op');" class="card-link">
-          <div class="card">
-            <img src="BOX_NRECA.png" class="card-img-top img-fluid" alt="Electrical Co-Op Deck">
-            <div class="card-body">
-              <h5 class="card-title">Electrical Co-Op Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Datadog -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'DataDog');" class="card-link">
-          <div class="card">
-            <img src="BNB_DATADOG_BOX_ADJUSTED.png" class="card-img-top img-fluid" alt="DataDog Expansion">
-            <div class="card-body">
-              <h5 class="card-title">Datadog Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Huntress -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Huntress');" class="card-link">
-          <div class="card">
-            <img src="BB_HUNTRESS.png" class="card-img-top img-fluid" alt="Huntress Expansion Deck">
-            <div class="card-body">
-              <h5 class="card-title">Huntress Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Red Canary -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Red Canary');" class="card-link">
-          <div class="card">
-            <img src="BnB-Red-Canary-logo.png" class="card-img-top img-fluid" alt="Red Canary Expansion Deck">
-            <div class="card-body">
-              <h5 class="card-title">Red Canary Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- DenSecure -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'DenSecure');" class="card-link">
-          <div class="card">
-            <img src="deckback_DENSECURE.png" class="card-img-top img-fluid" alt="DenSecure Expansion Deck">
-            <div class="card-body">
-              <h5 class="card-title">DenSecure Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Trimarc -->
-      <div class="col-md-4 mb-4">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Trimarc');" class="card-link">
-          <div class="card">
-            <img src="trimarc-logo.png" class="card-img-top img-fluid" alt="Trimarc Expansion Deck">
-            <div class="card-body">
-              <h5 class="card-title">Trimarc Expansion Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ICS OT Section -->
-  <section class="text-center mb-5 mt-5">
-    <div class="container">
-      <p class="lead text">Industrial Control Systems & Operational Technology Security</p>
     </div>
   </section>
 
-  <div class="container">
-    <div class="row">
-      <!-- ICS OT -->
-      <div class="col-md-4 mb-4 mx-auto">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'ICSOT');" class="card-link">
-          <div class="card">
-            <img src="BB-ics.png" class="card-img-top img-fluid" alt="ICS OT Core Deck">
-            <div class="card-body">
-              <h5 class="card-title">ICS OT Core Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mega Deck -->
-  <section class="text-center mb-5 mt-5">
-    <div class="container">
-      <p class="lead text">Mega Deck -- All Backdoors & Breaches Cards Available in one MEGA DECK!!!!!</p>
-    </div>
-  </section>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4 mx-auto">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Everything Deck');" class="card-link">
-          <div class="card">
-            <img src="BHIS_BndB_MegaDeckCover.png" class="card-img-top img-fluid" alt="The Mega Deck!">
-            <div class="card-body">
-              <h5 class="card-title">The Mega Deck</h5>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Spanish Deck -->
-  <section class="text-center mb-5 mt-5">
-    <div class="container">
-      <p class="lead text">Backdoors and Breaches in Spanish (En Español)</p>
+  <section class="how" aria-labelledby="h-how">
+    <div class="wrap">
+      <p class="eyebrow">How the game works</p>
+      <h2 id="h-how">A different incident every game<span class="dot">.</span></h2>
+      <ol class="steps">
+        <li>
+          <h3>The Incident Captain builds the attack</h3>
+          <p>One player is the Incident Captain. The game deals one attack card for each stage: how the attacker got in, how they moved, how they stayed and how the data left. The Incident Captain sets the scene without giving the cards away.</p>
+        </li>
+        <li>
+          <h3>The Defenders investigate</h3>
+          <p>Each turn, the Defenders agree on one Detection and roll a d20. Established Detections, the ones the team is most experienced with, add +3. A roll of 11 or more succeeds. When a roll fails, talk through why it wouldn&rsquo;t have worked.</p>
+        </li>
+        <li>
+          <h3>Ten turns, and Injects</h3>
+          <p>Reveal all four attack cards within ten turns and the team wins. Three failed rolls in a row, or a natural 1 or 20, and the Incident Captain draws an Inject that changes the scenario.</p>
+        </li>
+      </ol>
+      <p class="online">In the online game, the Incident Captain&rsquo;s controls sit bottom right: the Solution, Injects, the Starting Condition and the Scenario Tools. The Game Progress box rolls the d20 and counts the turns. Click a card to turn it over, click it again to read it full size.</p>
     </div>
   </section>
 
-  <div class="container">
-    <div class="row">
-      <!-- Spanish Deck -->
-      <div class="col-md-4 mb-4 mx-auto">
-        <a href="play.backdoorsandbreaches.com-Engine-V1/App/index.html" onclick="localStorage.setItem('deckKey', 'Spanish 1.0');" class="card-link">
-          <div class="card">
-            <img src="BNB_CORE_SPANISH.png" class="card-img-top img-fluid" alt="Spanish Core Deck">
-            <div class="card-body">
-              <h5 class="card-title">Spanish Core Deck 1.0</h5>
-            </div>
-          </div>
-        </a>
+  <section class="thanks" aria-label="Attribution">
+    <div class="wrap">
+      <p class="eyebrow">Made in cooperation with Black Hills Information Security</p>
+      <p class="big">Backdoors &amp; Breaches is the property of Black Hills InfoSec.</p>
+      <p class="small">This version runs on their <a href="https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com" rel="noopener">open-source online game</a>.</p>
+      <ul class="bhis-links">
+        <li><a class="btn btn-outline" href="https://play.backdoorsandbreaches.com/" rel="noopener">The original online game by BHIS</a></li>
+        <li><a class="btn btn-outline" href="https://home.backdoorsandbreaches.com/" rel="noopener">All about Backdoors &amp; Breaches</a></li>
+        <li><a class="btn btn-outline" href="https://spearphish-general-store.myshopify.com/collections/backdoors-breaches-incident-response-card-game" rel="noopener">Get the Core Deck at the BHIS Spearphish General Store</a></li>
+      </ul>
+      <div class="logos">
+        <div class="stack">
+          <a class="bb" href="https://www.blackhillsinfosec.com/projects/backdoorsandbreaches/" rel="noopener"><img src="play.backdoorsandbreaches.com-Engine-V1/App/img/bb-logo-transparent.png" alt="Backdoors &amp; Breaches"></a>
+          <a class="bh" href="https://www.blackhillsinfosec.com/" rel="noopener"><img src="play.backdoorsandbreaches.com-Engine-V1/App/img/blackhills-logo.png" alt="Black Hills Information Security"></a>
+        </div>
+        <a class="partner" href="https://wildcardgroup.be/deck/"><img src="assets/logo-teal-trim.png" alt="Wildcard Group"></a>
       </div>
     </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <img src="assets/logo-white.png" alt="Wildcard Group">
+    <div class="foot-text">
+      <p>Backdoors &amp; Breaches&trade; is a game by Black Hills Information Security. The Wildcard Group expansion is made in cooperation with BHIS.</p>
+      <p class="bhis"><a href="https://play.backdoorsandbreaches.com/" rel="noopener">The original online game by BHIS</a> &middot; <a href="https://home.backdoorsandbreaches.com/" rel="noopener">All about Backdoors &amp; Breaches</a> &middot; <a href="https://spearphish-general-store.myshopify.com/collections/backdoors-breaches-incident-response-card-game" rel="noopener">Core Deck: BHIS Spearphish General Store</a></p>
+      <p><span class="nw">Wildcard Group CommV</span> &middot; <span class="nw">KBO BE 1004.371.157</span> &middot; <a href="mailto:info@wildcardgroup.be">info@wildcardgroup.be</a> &middot; <a href="https://wildcardgroup.be/deck/">wildcardgroup.be/deck</a> &middot; <a href="https://wildcardgroup.be/#contact">Book a confidential intake</a></p>
+      <p class="colophon">Modified by Wildcard Group (18&ndash;20 October 2026), based on BHIS <a href="https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com" rel="noopener">play.backdoorsandbreaches.com</a> (game engine B&amp;B Shuffle by Richard Phung/P3hndrx). Free software under the <a href="LICENSE">GNU General Public License v3</a> &middot; <a href="MODIFICATIONS.md">What we changed</a> &middot; <a href="https://github.com/WildcardGroup/play.backdoorsandbreaches.com" rel="noopener">Source code on GitHub</a>. Backdoors &amp; Breaches is the property of Black Hills InfoSec.</p>
+    </div>
   </div>
-	  </div>
-	</main>
-</section>
-		<footer class="text-muted">
-		  <div class="container">
-			
-			<a href="https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com""><img class="rounded float-left" src="Github_icon.png"></a>
-			<a href="https://www.blackhillsinfosec.com"><img class="rounded float-right" src="bb-logo-icon.png"></a>
-		  </div>
-		</footer>
-	
-		<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	  
-	
-	<svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+</footer>
+
+<script>
+// Remember the chosen deck the way the original landing page did (localStorage 'deckKey');
+// the ?deck= parameter in the link does the same when storage is blocked.
+document.querySelectorAll('[data-deck]').forEach(function(a){
+  a.addEventListener('click', function(){
+    try { localStorage.setItem('deckKey', a.getAttribute('data-deck')); } catch(e) {}
+  });
+});
+</script>
+</body>
 </html>

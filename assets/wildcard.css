@@ -1,0 +1,91 @@
+/* Wildcard Group theme for the Backdoors & Breaches online game.
+   Added by Wildcard Group (18 October 2026). Shared by the landing page and the game page.
+   Header, footer, colours and fonts follow wildcardgroup.be/deck. Never pure black: the dark anchor is navy. */
+
+@font-face{font-family:"Archivo";src:url("fonts/Archivo-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+@font-face{font-family:"Archivo";src:url("fonts/Archivo-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+@font-face{font-family:"Archivo";src:url("fonts/Archivo-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-RegularItalic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+
+:root{
+  --navy:#0B2641;
+  --teal:#005670;
+  /* the thin line under the header and above the footer, as on wildcardgroup.be and /deck.
+     Brand canon (6 Oct 2026) says one teal #005670 everywhere: switch this together with the website. */
+  --teal-line:#035974;
+  --teal-light:#3FA3C2;
+  --orange:#E7853C;
+  --orange-hover:#D17428;
+  --pale:#EFF7F9;
+  --white:#FFFFFF;
+  --line:#D5DCE0;
+  --ink:#0B2641;
+  --ink-soft:#3B5068;
+  --shadow:0 6px 18px rgba(11,38,65,.16);
+  --shadow-strong:0 14px 32px rgba(11,38,65,.26);
+  --head:"Archivo",Arial,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --wrap:1120px;
+  --gutter:clamp(16px,4vw,40px);
+}
+
+/* border-box only for our own blocks: the game's original layout relies on content-box */
+.wg .nav, .wg .nav *, .wg .toolbar, .wg .toolbar *, .wg .site-foot, .wg .site-foot *{box-sizing:border-box}
+.wg :focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wg .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.wg .eyebrow{font-family:var(--head);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 14px}
+.wg .dot{color:var(--orange)}
+.wg .brand{color:var(--teal);font-family:var(--head);font-weight:700;font-size:.95em;white-space:nowrap}
+
+/* faint Wildcard mark in the background, as on the one-pagers and in the service portfolio (Tom, 18/10):
+   the teal icon (OFFICIAL_APPROVED_LOGO/LOGO_3_ICON_teal) at low opacity, large and partly off the right edge.
+   z-index -1 keeps it behind every card, panel and button: it only shows in the white space. */
+body.wg::before{content:"";position:fixed;z-index:-1;pointer-events:none;top:16vh;right:-13vw;width:min(60vw,940px);aspect-ratio:1000/723;background:url("wg-mark.png?v=20261020a") no-repeat center/contain;opacity:.06}
+
+/* header: the same bar as wildcardgroup.be/deck (navy, thin teal line, logo with Digital Guardian) */
+.wg .nav{background:var(--navy);border-bottom:2px solid var(--teal-line)}
+.wg .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:81px}
+.wg .nav img{height:min(65px,calc((100vw - 2*var(--gutter) - 250px) / 8.2));width:auto;display:block}
+.wg .nav .right{display:flex;align-items:center;gap:26px}
+.wg .nav a.back{font-family:var(--head);font-weight:500;font-size:15px;color:var(--white);text-decoration:none;opacity:.9;white-space:nowrap}
+.wg .nav a.back:hover{opacity:1;text-decoration:underline}
+.wg .nav .short{display:none}
+
+/* buttons */
+.wg .btn{display:inline-block;font-family:var(--head);font-weight:600;font-size:17px;text-decoration:none;border-radius:6px;padding:15px 24px;border:0;cursor:pointer;line-height:1.2}
+.wg .btn-navy{background:var(--navy);color:var(--white)}
+.wg .btn-navy:hover{background:var(--teal);color:var(--white)}
+/* navy text on orange: white on orange only reaches 2.7:1 */
+.wg .btn-orange{background:var(--orange);color:var(--navy)}
+.wg .btn-orange:hover{background:var(--orange-hover);color:var(--navy)}
+.wg .btn-outline{background:transparent;color:var(--navy);border:2px solid var(--navy);padding:13px 22px}
+.wg .btn-outline:hover{background:var(--navy);color:var(--white)}
+
+/* footer: as on /deck, plus the GPL notice */
+.wg .site-foot{background:var(--navy);color:rgba(255,255,255,.82);border-top:2px solid var(--teal-line);padding:40px 0 48px;font-family:var(--head);font-size:14px;line-height:1.6}
+/* centred as one block (Tom, 18/10): logo on top, the lines and links centred underneath */
+.wg .site-foot .wrap{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.wg .site-foot img{height:88px;width:auto;display:block}
+.wg .site-foot .foot-text{max-width:60em}
+.wg .site-foot p{margin:0 auto 6px;max-width:48em;text-wrap:balance}
+.wg .site-foot p a, .wg .site-foot .nw{white-space:nowrap}
+.wg .site-foot p.bhis{max-width:60em}
+.wg .site-foot a{color:var(--white)}
+.wg .site-foot a:hover{color:var(--teal-light)}
+.wg .site-foot .colophon{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:rgba(255,255,255,.7)}
+
+/* prototype flag: remove this element (and the robots noindex) once BHIS has agreed and the site goes live */
+.wg .proto-flag{display:inline-block;font-family:var(--head);font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);background:var(--pale);border:1px solid var(--line);border-radius:4px;padding:3px 7px;vertical-align:middle}
+
+@media (max-width:560px){
+  body.wg::before{top:30vh;right:-44vw;width:120vw;opacity:.07}
+  .wg .nav .wrap{height:64px}
+  .wg .nav img{height:min(28px,calc((100vw - 2*var(--gutter) - 150px) / 8.2))}
+  .wg .nav .long{display:none}
+  .wg .nav .short{display:inline}
+  .wg .nav .right{gap:14px}
+  .wg .site-foot img{height:72px}
+  .wg .site-foot .wrap{gap:18px}
+}

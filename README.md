@@ -1,3 +1,35 @@
+# Backdoors & Breaches online: Wildcard Group edition
+
+This is the version of the online Backdoors & Breaches game that Wildcard Group hosts at **https://play.wildcardgroup.be/**, with the agreement of Black Hills Information Security. It is a fork of the open-source [play.backdoorsandbreaches.com](https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com) by BHIS.
+
+**Backdoors & Breaches is an incident response card game by [Black Hills Information Security](https://www.blackhillsinfosec.com/).** All credit for the game, its design and the Core Deck goes to BHIS, and for the online engine (B&B Shuffle, Engine-V1) to Richard Phung ([P3hndrx](https://github.com/p3hndrx)) and BHIS.
+
+- The original online game by BHIS: https://play.backdoorsandbreaches.com/
+- All about Backdoors & Breaches: https://home.backdoorsandbreaches.com/
+- The Core Deck: [BHIS Spearphish General Store](https://spearphish-general-store.myshopify.com/collections/backdoors-breaches-incident-response-card-game)
+
+## What this edition adds
+
+Two decks: the Core Deck V3.1, unchanged, and the Core Deck V3.1 plus the ten cards of the Wildcard Group expansion, made in cooperation with BHIS. Also Wildcard Group styling, a phone layout and short links. The full list is in [MODIFICATIONS.md](MODIFICATIONS.md).
+
+- Play with the Wildcard Group expansion: https://play.wildcardgroup.be/wildcard/
+- Play with the Core Deck: https://play.wildcardgroup.be/core/
+- About the expansion and the physical pack: https://wildcardgroup.be/deck/
+
+## Branches
+
+- `wildcardgroup` (default): the code that runs on play.wildcardgroup.be. The repository root is the website root.
+- `ICS-OT-V1.1`: the BHIS branch this edition is based on, unchanged (commit `bfc3570`).
+
+## Licence
+
+The code is free software under the GNU General Public License v3 ([LICENSE](LICENSE)), as in the BHIS repository. The Backdoors & Breaches name, the logos, the card designs and the card art are not covered by the GPL and remain the property of Black Hills Information Security.
+
+Wildcard Group CommV · https://wildcardgroup.be · info@wildcardgroup.be
+
+---
+
+*The original README of B&B Shuffle follows.*
 
 <img src="https://raw.githubusercontent.com/p3hndrx/B-B-Shuffle/Engine-V1/App/img/bb-logo.png" width="500px"
      alt="BackDoors & Breaches"

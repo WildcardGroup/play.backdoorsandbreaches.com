@@ -1,0 +1,30 @@
+# Netlify response headers for play.wildcardgroup.be (Wildcard Group, 20 October 2026).
+# Netlify reads this file from the publish directory (site/) for every deploy method and does not serve it.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# GPL licence and notes: show them as text in the browser instead of downloading them
+/LICENSE
+  Content-Type: text/plain; charset=utf-8
+/MODIFICATIONS.md
+  Content-Type: text/plain; charset=utf-8
+/README.md
+  Content-Type: text/plain; charset=utf-8
+/ChangeLog.md
+  Content-Type: text/plain; charset=utf-8
+/play.backdoorsandbreaches.com-Engine-V1/LICENSE
+  Content-Type: text/plain; charset=utf-8
+/play.backdoorsandbreaches.com-Engine-V1/README.md
+  Content-Type: text/plain; charset=utf-8
+/play.backdoorsandbreaches.com-Engine-V1/ChangeLog.md
+  Content-Type: text/plain; charset=utf-8
+/play.backdoorsandbreaches.com-Engine-V1/HowTo-CustomDecks.md
+  Content-Type: text/plain; charset=utf-8
+
+# card images rarely change: let browsers keep them for a day
+/play.backdoorsandbreaches.com-Engine-V1/App/decks/*
+  Cache-Control: public, max-age=86400

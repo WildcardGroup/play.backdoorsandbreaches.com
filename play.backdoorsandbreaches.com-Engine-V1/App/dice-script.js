@@ -1,6 +1,9 @@
 // VERSION*/
 // B&B - Engine.DS.1.0
 //
+// Modified by Wildcard Group (18 October 2026): button labels use the BHIS Visual Guide v6 terms
+// ("Roll d20 +3 (Established Detection)").
+//
 
   //DICE FUNCTIONS
       turn = 10
@@ -73,14 +76,14 @@
                 document.getElementById("turn_message").innerHTML = "";
               }
               if(turn==2) {
-                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll Dice'/>";
-                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll Dice (+3)'/>";
+                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll d20'/>";
+                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll d20 +3 (Established Detection)'/>";
                 document.getElementById("turn").innerHTML = turn;
                 document.getElementById("turn_message").innerHTML = "WARNING";
               }
               if(turn==1) {
-                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll Dice'/>";
-                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll Dice (+3)'/>";
+                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll d20'/>";
+                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll d20 +3 (Established Detection)'/>";
                 document.getElementById("turn").innerHTML = turn;
                 document.getElementById("turn_message").innerHTML = "RED ALERT";
               }
@@ -108,14 +111,14 @@
                 document.getElementById("turn_message").innerHTML = "";
               }
               if(turn==2) {
-                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll Dice'/>";
-                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll Dice (+3)'/>";
+                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll d20'/>";
+                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll d20 +3 (Established Detection)'/>";
                 document.getElementById("turn").innerHTML = turn;
                 document.getElementById("turn_message").innerHTML = "WARNING";
               }
               if(turn==1) {
-                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll Dice'/>";
-                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll Dice (+3)'/>";
+                document.getElementById("button").innerHTML = "<input type='button' onclick='roll_dice(0)'' value='Roll d20'/>";
+                document.getElementById("button2").innerHTML = "<input type='button' onclick='roll_dice(3)'' value='Roll d20 +3 (Established Detection)'/>";
                 document.getElementById("turn").innerHTML = turn;
                 document.getElementById("turn_message").innerHTML = "RED ALERT";
               }

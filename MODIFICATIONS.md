@@ -1,0 +1,44 @@
+# Modifications by Wildcard Group
+
+**Modified by Wildcard Group, 18–20 October 2026, based on BHIS play.backdoorsandbreaches.com.**
+
+This is a modified copy of the open-source online version of Backdoors & Breaches:
+
+- Upstream: https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com
+- Upstream branch and commit: `ICS-OT-V1.1` @ `bfc357051a691018902d5de357529485ea252c3c` (27 March 2026, "One more patch", after the Core V3.1 update)
+- Game engine: B&B Shuffle, Engine-V1, by Richard Phung (P3hndrx), maintained by Black Hills Information Security
+- Licence: GNU General Public License v3 (see `LICENSE`, unchanged). This modified version is distributed under the same licence.
+- Source code of this modified version: https://github.com/WildcardGroup/play.backdoorsandbreaches.com (branch `wildcardgroup`, a public fork of the BHIS repository). Every file served on play.wildcardgroup.be is also the unminified source.
+- Hosted at https://play.wildcardgroup.be/ with the agreement of Black Hills Information Security.
+
+**Backdoors & Breaches is the property of Black Hills InfoSec.** The game name, the logos, the card designs and the card art are not covered by the GPL and remain the property of Black Hills Information Security. The Wildcard Group expansion cards are made in cooperation with BHIS.
+
+## What we changed
+
+Wildcard Group, 18 October 2026:
+
+1. **Trimmed to two decks.** Kept only the Engine-V1 app and the Core Deck V3.1 (`App/decks/CoreV3.1`, unchanged). Removed the other decks, the DEFCON copy, the old expansion engine, the screenshots and unused images and pages (`help.html`, `sample.html`, `collaborators.html`, `indexBackup.html`, `newIndex.html`).
+2. **New deck: Core V3.1 + Wildcard Group expansion** (`App/decks/WildcardGroup/`), added as described in `HowTo-CustomDecks.md`. Its `carddb.json` holds the 52 Core V3.1 cards (images from `decks/CoreV3.1/`) plus the 10 expansion cards: three Initial Compromise cards, one Pivot and Escalate card and six Injects. The `link` and `logo` fields attribute the deck to Wildcard Group. Card images are rendered from the print files of the expansion at the size of the Core V3.1 images (1449 x 2000 px).
+3. **Deck selection** (`App/deck-script.js`, `App/index.html`): the deck selector lists the two decks; `loaddeck()` knows `CoreV3.1` and `WildcardGroup`, accepts a `?deck=` URL parameter, and falls back to the Core Deck for unknown keys. The default deck is Core V3.1 (was Core V2.2, which is no longer included).
+4. **Wildcard Group styling.** New stylesheets `assets/wildcard.css` and `App/wildcard-game.css` are loaded after the original stylesheets, which are unchanged. Wildcard Group header and footer as on wildcardgroup.be/deck, navy/teal/orange colours, self-hosted Archivo and Source Serif 4 fonts instead of Google Fonts (both fonts: SIL Open Font License 1.1), a toolbar instead of the two floating info boxes, and a phone layout below 768 px width (panels in the page flow, 2 x 2 scenario cards, tokens hidden).
+5. **Terms from the BHIS Visual Guide v6**: "Incident Captain controls" (was "DM Controls/Toggles"), "Roll d20 +3 (Established Detection)" (was "Roll Dice (+3)"), labels above the Established Detections and Other Detections (`App/index.html`, `App/dice-script.js`).
+6. **Attribution**: the attribution block under the game now also states "Backdoors & Breaches is the property of Black Hills InfoSec." (`App/deck-script.js`); the landing page and the footer of both pages carry the same sentence, a link to the upstream repository and to this file.
+7. **Landing page** (`index.html`) rewritten: two deck tiles, a short explanation of the game and the BHIS attribution.
+8. **Phone helper** (`App/index.html`): on narrow screens a panel opened from the Incident Captain controls scrolls into view.
+9. **Prototype markers**: `<meta name="robots" content="noindex,nofollow">` and a "Prototype" label. Remove both when the site goes live.
+10. **Attribution logos** (`App/deck-script.js`, `App/wildcard-game.css`, `index.html`): the Backdoors & Breaches and BHIS logos are stacked, and the deck partner logo is as tall as the two together. The BHIS logo files are unchanged; their transparent margins are cropped in CSS. The landing page shows the same row with the Wildcard Group logo.
+11. **Background watermark** (`assets/wildcard.css`, `assets/wg-mark.png`): a large, faint Wildcard Group mark behind the content, partly off the right edge. It sits behind all cards, panels and controls.
+12. **Favicon**: `favicon.ico` is the Wildcard Group icon (the BHIS favicon is not included).
+13. **Horizontal bands** (`App/wildcard-game.css`, `assets/wg-band-scenario.svg`, `assets/wg-band-detections.svg`, class `wg-bands` on `<body>` in `App/index.html`): the Backdoors & Breaches line pattern behind the scenario row and the Established Detections is replaced by Wildcard Group bands in the wave-bundle style of the Wildcard Group Service Portfolio and the wildcardgroup.be hero (thin wavy lines with fine particles, no focal point): a navy band with a teal and white bundle and a fine dot grid behind the scenario cards, and a teal band with a lighter white bundle behind the Established Detections. The SVGs are generated by `tools/genereer_banden.py` (outside `site/`), a port of the portfolio's `wave_bundle()`. The original images (`img/bb-bw-back-img.png`, `img/bb-proc-back-img.png`) and rules are unchanged: removing the class restores them.
+14. **Centred footer** (`assets/wildcard.css`, footer markup in `index.html` and `App/index.html`): logo on top, the lines and links centred underneath as one block, with balanced line breaks; the company name and KBO number never break across lines.
+15. **Moving bands** (`App/wildcard-bands.js`, new; `App/wildcard-game.css`; script tag in `App/index.html`): the two bands show the moving wave bundle of the wildcardgroup.be hero on a canvas (same algorithm as the hero's script), slower and fainter, at most 30 frames per second, and only while a band is on screen. The script wraps `#output` in a `div.wg-procband` so the canvas can sit behind the Established Detections; the game code is unchanged. When motion is reduced, canvas is unavailable or the `wg-bands` class is absent, nothing runs and the static bands of item 13 stay. The script positions and sizes its canvases with inline styles, so the layout does not depend on a fresh stylesheet.
+16. **Cache-busting**: the Wildcard Group stylesheets, script and band/watermark images are referenced with a version token (`?v=20261020a`) in `index.html`, `App/index.html`, `assets/wildcard.css` and `App/wildcard-game.css`.
+
+17. **Links to BHIS** (20 October 2026, `index.html`, `App/index.html`): the landing page (top and attribution block) and the footer of both pages link to the original online game by BHIS (https://play.backdoorsandbreaches.com/), to https://home.backdoorsandbreaches.com/ and to the BHIS Spearphish General Store for the Core Deck. Links in the game page footer open in a new tab, so a game in progress is not lost.
+18. **Short links** (`wildcard/index.html`, `core/index.html`): `/wildcard/` and `/core/` open the game with the Core V3.1 + Wildcard Group expansion deck or the Core Deck V3.1 preselected.
+19. **Netlify headers** (`_headers`): `LICENSE` and the `.md` notes are served as plain text, basic security headers, card images cached for a day. The "Prototype" label now reads "Preview".
+20. **Public source** (20 October 2026): this modified version is published at https://github.com/WildcardGroup/play.backdoorsandbreaches.com, linked from the footer of both pages. `README.md` starts with a section on this edition and its credits to BHIS; the original README follows unchanged.
+
+Files marked with a "Modified by Wildcard Group" comment: `index.html`, `play.backdoorsandbreaches.com-Engine-V1/App/index.html`, `App/deck-script.js`, `App/dice-script.js`. Also changed: `README.md` (new section at the top). New files: `MODIFICATIONS.md`, `favicon.ico`, `_headers`, `wildcard/index.html`, `core/index.html`, `assets/*`, `App/wildcard-game.css`, `App/decks/WildcardGroup/*`. All other files are as in the upstream commit above.
+
+Wildcard Group CommV · KBO BE 1004.371.157 · info@wildcardgroup.be · https://wildcardgroup.be

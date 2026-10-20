@@ -1,46 +1,66 @@
+<!doctype html>
+<!--
+  Backdoors & Breaches online: game page (B&B Shuffle | Engine-V1 by Richard Phung/P3hndrx, maintained by
+  Black Hills Information Security: https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com, GNU GPL v3).
+  Modified by Wildcard Group, 18 October 2026: Wildcard Group header, toolbar, footer and styling (wildcard-game.css);
+  deck selector reduced to Core V3.1 and Core V3.1 + Wildcard Group expansion; labels use the BHIS Visual Guide v6
+  terms; Google Fonts replaced by self-hosted Archivo and Source Serif 4. See MODIFICATIONS.md in the site root.
+  Backdoors & Breaches is the property of Black Hills InfoSec.
+-->
+<html lang="en">
 <head>
-  <title>B&B Shuffle | Engine-V1</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Backdoors &amp; Breaches online | Wildcard Group</title>
+  <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="stylesheet" href="styles.css" >
   <link rel="stylesheet" href="builder-styles.css" >
   <link rel="stylesheet" href="deck-styles.css" >
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <link href="lightbox.css" rel="stylesheet" />
-  
+  <link rel="stylesheet" href="../../assets/wildcard.css?v=20261020a">
+  <link rel="stylesheet" href="wildcard-game.css?v=20261020a">
     </head>
+<!-- "wg-bands" switches on the Wildcard Group bands; remove it to get the original Backdoors & Breaches bands back -->
+<body class="wg game wg-bands">
+
+  <!-- Wildcard Group header, as on wildcardgroup.be/deck -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="https://wildcardgroup.be/" aria-label="Wildcard Group home"><img src="../../assets/logo-nav.png" alt="Wildcard Group | Digital Guardian"></a>
+      <div class="right">
+        <a class="back" href="https://wildcardgroup.be/"><span class="long">wildcardgroup.be</span><span class="short">Home</span> &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+  <div class="wrap">
   <div id="viewrec">
-   B&B Shuffle - Engine-V1 <div id="version">Card list: </div><div id="date">Rev Date: </div>
-      <button id="deckselectoropen" class="open-button" onclick="opendeckselector()">Choose Deck</button>
+   <a class="tb-home" href="../../index.html">Backdoors &amp; Breaches online</a> <span class="proto-flag">Preview</span>
+   <div id="version">Deck: </div><div id="date">Rev. date: </div>
+      <button id="deckselectoropen" class="open-button" onclick="opendeckselector()">Choose deck</button>
   </div>
   <div class="form-popup" id="myForm">
           <form class="form-container" onsubmit="updatedeck(deck.value);">
               Available Decks: 
               <br>
-              <input type="radio" id="corev3.1" name="deck" value="CoreV3.1" ><label for="corev3.1">CoreV3.1</label><br>
-              <input type="radio" id="spanish" name="deck" value="Spanish 1.0"><label for="spanish">Core-Spanish 1.0</label><br>
-              <input type="radio" id="expansion12" name="deck" value="Expansion1-2" ><label for="expansion12">Core V3.1 plus Expansion</label><br>
-              <input type="radio" id="cloudSecurity" name="deck" value="Cloud Security" ><label for="cloudSecurity">Cloud Security</label><br>
-              <input type="radio" id="Electrical-Co-Op" name="deck" value="Electrical-Co-Op" ><label for="Electrical-Co-Op">Electrical Co-Op</label><br>
-              <input type="radio" id="datadog" name="deck" value="DataDog" ><label for="datadog">DataDog</label><br>
-              <input type="radio" id="huntress" name="deck" value="Huntress" ><label for="huntress">Huntress Deck</label><br>
-              <input type="radio" id="redCanary" name="deck" value="Red Canary"><label for="redCanary">Red Canary</label><br>
-              <input type="radio" id="DenSecure" name="deck" value="DenSecure"><label for="DenSecure">DenSecure</label><br>
-              <input type="radio" id="Trimarc" name="deck" value="Trimarc"><label for="Trimarc">Trimarc</label><br>
-              <input type="radio" id="icsotV1" name="deck" value="ICSOT" ><label for="icsotV1">ICS/OTv1</label><br>
-              <input type="radio" id="EverythingDeck" name="deck" value="Everything Deck" ><label for="EverythingDeck">The MEGA Deck</label><br>
+              <input type="radio" id="corev3.1" name="deck" value="CoreV3.1" ><label for="corev3.1">Core V3.1</label><br>
+              <input type="radio" id="wildcardgroup" name="deck" value="WildcardGroup" ><label for="wildcardgroup">Core V3.1 + Wildcard Group expansion</label><br>
               <br>
-          <button type="submit" class="btn" >Submit</button>
-          <button type="button" class="btn cancel" onclick="closedeckselector()">Close Deck Selector</button>
+          <button type="submit" class="btn" >Load deck</button>
+          <button type="button" class="btn cancel" onclick="closedeckselector()">Close</button>
           </form>
       </div>
   <!--recommendations-->
   <div id="viewrecright">
-   Best viewed at 1920x1080
-   <br>
+   Best viewed at 1920x1080 &middot; <a href="../../index.html">All decks</a>
+  </div>
+  </div>
   </div>
   <div id="solution">
-    DM Controls/Toggles:
+    <span class="ic-label">Incident Captain controls:</span>
     <button onclick="diceboxtoggle()"> D20</button>
     <button onclick="notestoggle()"> Notes</button>
     |
@@ -187,10 +207,10 @@
   <center>
     <h1 tabindex="0" class="title">DETECTIONS</h1></header>
   
-  Established Detections: 
+  <p class="proc-label">Established Detections <span>+3 to the roll</span></p>
       <div class="establishedprocs" id="output"></div>
       <div style="clear:both; margin-bottom:10px;"></div>
-  Other Detections: 
+  <p class="proc-label">Other Detections</p>
       <div class="otherprocs" id="remainder"></div>
   </center>
   <div style="clear:both; margin-bottom:10px;"></div>
@@ -262,8 +282,8 @@
     <div id="mydivheader">
       <header>
       <h1 tabindex="0" >GAME PROGRESS</h1></header></div>
-            <span id="button"><input type="button" onclick="roll_dice(0)" value="Roll Dice"/></span>
-            <span id="button2"><input type="button" onclick="roll_dice(3)" value="Roll Dice (+3)"/></span>
+            <span id="button"><input type="button" onclick="roll_dice(0)" value="Roll d20"/></span>
+            <span id="button2"><input type="button" onclick="roll_dice(3)" value="Roll d20 +3 (Established Detection)"/></span>
             <span id="button3"><button onClick='addturn()'>Add Extra Turn</button></span>
             <span id="button4"><button onClick='removeturn()'>Remove Turn</button></span>
       <div class="dice" id="dice_box">
@@ -313,16 +333,30 @@
    <div id="copyright">
   
    </div>
+
+  <!-- Wildcard Group footer, as on wildcardgroup.be/deck -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <img src="../../assets/logo-white.png" alt="Wildcard Group">
+      <div class="foot-text">
+        <!-- links leave the page in a new tab, so a game in progress is not lost -->
+        <p>Backdoors &amp; Breaches&trade; is a game by Black Hills Information Security. The Wildcard Group expansion is made in cooperation with BHIS.</p>
+        <p class="bhis"><a href="https://play.backdoorsandbreaches.com/" target="_blank" rel="noopener">The original online game by BHIS</a> &middot; <a href="https://home.backdoorsandbreaches.com/" target="_blank" rel="noopener">All about Backdoors &amp; Breaches</a> &middot; <a href="https://spearphish-general-store.myshopify.com/collections/backdoors-breaches-incident-response-card-game" target="_blank" rel="noopener">Core Deck: BHIS Spearphish General Store</a></p>
+        <p><span class="nw">Wildcard Group CommV</span> &middot; <span class="nw">KBO BE 1004.371.157</span> &middot; <a href="mailto:info@wildcardgroup.be">info@wildcardgroup.be</a> &middot; <a href="https://wildcardgroup.be/deck/" target="_blank" rel="noopener">wildcardgroup.be/deck</a> &middot; <a href="https://wildcardgroup.be/#contact" target="_blank" rel="noopener">Book a confidential intake</a></p>
+        <p class="colophon">Modified by Wildcard Group (18&ndash;20 October 2026), based on BHIS <a href="https://github.com/blackhillsinfosec/play.backdoorsandbreaches.com" target="_blank" rel="noopener">play.backdoorsandbreaches.com</a> (B&amp;B Shuffle Engine-V1 by Richard Phung/P3hndrx). Free software under the <a href="../../LICENSE" target="_blank" rel="noopener">GNU General Public License v3</a> &middot; <a href="../../MODIFICATIONS.md" target="_blank" rel="noopener">What we changed</a> &middot; <a href="https://github.com/WildcardGroup/play.backdoorsandbreaches.com" target="_blank" rel="noopener">Source code on GitHub</a>. Backdoors &amp; Breaches is the property of Black Hills InfoSec.</p>
+      </div>
+    </div>
+  </footer>
   
       <!-- COUNTERS -->
-      <div id="counter1" class="counter" style="top: 360px; left: 240px;">1</div>
-      <div id="counter2" class="counter" style="top: 360px; left: 240px;">2</div>
-      <div id="counter3" class="counter" style="top: 360px; left: 240px;">3</div>
+      <div id="counter1" class="counter" style="top: 150px; left: 24px;">1</div>
+      <div id="counter2" class="counter" style="top: 150px; left: 24px;">2</div>
+      <div id="counter3" class="counter" style="top: 150px; left: 24px;">3</div>
       
       <!-- HOLD COUNTER -->
-      <div id="hold1" class="xcounter" style="top: 360px; left: 320px;">x</div>
-      <div id="hold2" class="xcounter" style="top: 360px; left: 320px;">x</div>
-      <div id="hold3" class="xcounter" style="top: 360px; left: 320px;">x</div>
+      <div id="hold1" class="xcounter" style="top: 150px; left: 112px;">x</div>
+      <div id="hold2" class="xcounter" style="top: 150px; left: 112px;">x</div>
+      <div id="hold3" class="xcounter" style="top: 150px; left: 112px;">x</div>
       
   
   <script src="lightbox.js"></script>
@@ -331,6 +365,26 @@
   <script type="text/javascript" src="ui-script.js"></script>
   <script type="text/javascript" src="ui-builder.js"></script>
   <script type="text/javascript" src="deck-script.js"></script>
+  <!-- Wildcard Group: moving wave bundle in the two bands (falls back to the static bands) -->
+  <script type="text/javascript" src="wildcard-bands.js?v=20261020a"></script>
+
+  <script type="text/javascript">
+  // Wildcard Group (18 October 2026): on phones the panels sit in the page flow, far below the
+  // Incident Captain controls. Bring a panel into view when it is opened.
+  (function(){
+    var phone = window.matchMedia("(max-width:767px)");
+    var panels = {diceboxtoggle:"dicebox", notestoggle:"gmnotes", initinjectstoggle:"initinject", injectstoggle:"injectdiv", consultantToggle:"consultantdiv"};
+    document.querySelectorAll("#solution button").forEach(function(b){
+      var m = (b.getAttribute("onclick") || "").match(/(\w+)\(/);
+      var id = m && panels[m[1]];
+      if (!id) return;
+      b.addEventListener("click", function(){
+        var el = document.getElementById(id);
+        if (phone.matches && el.style.display === "block") el.scrollIntoView({behavior:"smooth", block:"start"});
+      });
+    });
+  })();
+  </script>
   
   
   <script type="text/javascript">
@@ -342,8 +396,8 @@
   
     if (selectedDeck == null)
     {
-      selectedDeck = "CoreV22";
-      console.log("deck is not found/initilized, setting to CoreV22");
+      selectedDeck = "CoreV3.1";
+      console.log("deck is not found/initilized, setting to CoreV3.1");
     }
   
     
@@ -411,3 +465,5 @@ addonbacks.forEach((xc) =>
     
   
   </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+/* Wildcard Group theme for the game page (B&B Shuffle Engine-V1).
+   Added by Wildcard Group (18 October 2026). Loaded after the original stylesheets (styles.css,
+   builder-styles.css, deck-styles.css, lightbox.css), which stay unchanged so upstream updates
+   from BHIS remain easy to merge. Tokens and fonts come from ../../assets/wildcard.css.
+   No pure black: shadows and borders use navy. */
+
+body.game{margin:0;background:var(--white);background-image:none;color:var(--ink);font-family:var(--head);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.game{--wrap:1680px}
+.game a{color:var(--teal)}
+.game a:hover{color:var(--navy)}
+.game hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+
+/* section titles: SCENARIO, DETECTIONS, INJECTS ... */
+.game h1, .game h2{font-family:var(--head)}
+.game .title{font-family:var(--head);font-weight:700;color:var(--navy);font-size:clamp(24px,2.6vw,34px);letter-spacing:.08em;margin:34px 0 4px}
+.game center{font-family:var(--head);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+
+/* buttons: navy, teal on hover; the original grey system buttons are gone */
+.game button, .game input[type=button]{font-family:var(--head);font-weight:600;font-size:14px;line-height:1.2;color:var(--white);background:var(--navy);border:0;border-radius:6px;padding:8px 12px;margin:2px;cursor:pointer}
+.game button:hover, .game input[type=button]:hover{background:var(--teal)}
+.game .form-container .cancel, #clearIC, #clearPE, #clearCE, #clearPER{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+.game .form-container .cancel:hover, #clearIC:hover, #clearPE:hover, #clearCE:hover, #clearPER:hover{background:var(--navy);color:var(--white)}
+
+/* toolbar under the header: deck name, rev date, deck selector (the old top-left and top-right boxes) */
+.game .toolbar{background:var(--pale);border-bottom:1px solid var(--line)}
+.game .toolbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;min-height:54px;padding-top:8px;padding-bottom:8px;position:relative}
+#viewrec, #viewrecright{position:static;width:auto;background:none;border-radius:0;box-shadow:none;padding:0;font-size:14px;z-index:auto}
+#viewrec{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px}
+#viewrec .tb-home{font-weight:700;color:var(--navy);text-decoration:none}
+#viewrec .tb-home:hover{color:var(--teal)}
+#version, #date{color:var(--ink-soft)}
+#version{font-weight:600;color:var(--navy)}
+#viewrecright{color:var(--ink-soft);font-size:13px}
+#deckselectoropen{margin:0}
+.game .form-popup{position:absolute;top:calc(100% + 6px);left:var(--gutter);z-index:100}
+.game .form-container{max-width:360px;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;box-shadow:var(--shadow-strong);padding:16px 18px;font-family:var(--head);font-size:14px;font-weight:600;color:var(--navy);line-height:2}
+.game .form-container input[type=radio]{accent-color:var(--teal);margin:0 6px 0 0}
+.game .form-container label{font-weight:500}
+.game .form-container .btn{opacity:1;margin:4px 6px 0 0}
+
+/* Incident Captain controls (bottom right) */
+#solution{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:12px;box-shadow:var(--shadow-strong);padding:12px 14px 6px;max-width:min(1040px,calc(100vw - 32px));font-family:var(--head);font-size:14px;color:var(--line)}
+#solution .ic-label{display:block;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+#solution button{margin:0 4px 8px 0}
+#dm_scenario{color:var(--ink);font-weight:600}
+.warn{background:var(--pale);border-left:4px solid var(--orange);color:var(--navy);font-family:var(--head);font-weight:600;border-radius:4px}
+
+/* scenario cards */
+.cards__single{border-radius:12px;box-shadow:var(--shadow-strong)}
+.cards__back{border-radius:12px;color:var(--navy)}
+.cards__front img{border-radius:12px}
+
+/* Wildcard Group bands (Tom, 18/10), replacing the Backdoors & Breaches line pattern in the two horizontal bands.
+   Both use our wave bundle (Service Portfolio cover, wildcardgroup.be hero): thin wavy lines with fine particles, no focal point.
+   Scenario row: navy band, teal and white bundle with the portfolio's dot grid (was a grey band).
+   Established Detections: teal band, lighter white bundle (was blue: Detection cards are blue, teal keeps that link).
+   The SVGs are made by tools/genereer_banden.py (outside site/).
+   Back to the original bands: remove the class "wg-bands" from <body> in App/index.html; nothing else changes. */
+.wg-bands .cards, .wg-bands #addonscenario .expcards{background:
+  url("../../assets/wg-band-scenario.svg?v=20261020a") center / auto 125px no-repeat,
+  linear-gradient(var(--teal) 0 2px, var(--navy) 2px calc(100% - 2px), var(--teal) calc(100% - 2px)) center / 100% 125px no-repeat}
+.wg-bands .establishedprocs{background:
+  url("../../assets/wg-band-detections.svg?v=20261020a") center / auto 125px no-repeat,
+  linear-gradient(var(--navy) 0 2px, var(--teal) 2px calc(100% - 2px), var(--navy) calc(100% - 2px)) center / 100% 125px no-repeat}
+
+/* moving bands (wildcard-bands.js, Tom 18/10): the hero's wave bundle, animated, slow and faint.
+   The script creates, positions and sizes its canvases itself (inline styles), and only when it really runs;
+   until then, and for visitors who ask for reduced motion, the static SVG bands above stay visible.
+   It also adds "wg-bands-live" to <body> as a hook. */
+
+/* Detections */
+.proc{border-radius:12px;box-shadow:var(--shadow)}
+.establishedprocs, .otherprocs{font-family:var(--head)}
+
+/* floating panels: Game Progress, d20, Injects, Starting Condition, Consultants, Notes, Add-On Scenario */
+#mydiv, #injectdiv, #dicebox, #initinject, #consultantdiv, #addonscenario{background:var(--white);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-strong);overflow:hidden;font-family:var(--head)}
+#mydivheader, #diceboxheader, #gmnotesheader, #injectdivheader, #initinjectheader, #consultantdivheader{padding:10px 14px;background:var(--navy);color:var(--white)}
+#injectdivheader, #initinjectheader, #consultantdivheader{background:var(--teal)}
+#mydivheader h1, #diceboxheader h1, #gmnotesheader h1, #injectdivheader h1, #initinjectheader h2, #consultantdivheader h1{font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0;color:var(--white)}
+#injectdivheader .title, #consultantdivheader h1{color:var(--white)}
+#addonscenarioheader h1{color:var(--navy);font-size:22px;letter-spacing:.08em}
+#mydiv{padding-bottom:12px}
+#mydiv > span{display:inline-block;margin-top:10px}
+#gmnotes{background:var(--pale);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-strong);overflow:hidden;font-family:var(--head)}
+#gmnotes textarea{font-family:var(--head);font-size:20px;color:var(--navy);background:var(--white);border:1px solid var(--line);border-radius:6px;margin:0 10px 10px;padding:8px}
+#dice, #d20{min-height:20px;font-weight:600;color:var(--ink-soft);padding-top:8px}
+.big_num{font-family:var(--head);font-weight:700;font-size:44px;color:var(--navy);line-height:1.15}
+.success{background:var(--teal);color:var(--white);font-weight:700;letter-spacing:.06em;border-radius:6px;margin:6px 12px}
+/* a failure is the one orange moment on the page: navy text on orange for contrast */
+.fail{background:var(--orange);color:var(--navy);font-weight:700;letter-spacing:.06em;border-radius:6px;margin:6px 12px}
+#message .inject{background:var(--navy);color:var(--white);font-weight:700;letter-spacing:.06em;border-radius:6px;margin:6px 12px}
+#fails{font-weight:600;color:var(--navy)}
+.turn{font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+#turn{font-size:40px;font-weight:700;letter-spacing:0;color:var(--navy);line-height:1.1}
+#turn_message{color:var(--orange-hover);font-weight:700}
+
+/* tokens: teal numbered counters and navy "x" counters (were red with a black dashed border) */
+#counter1, #counter2, #counter3{background-color:var(--teal);color:var(--white);border:4px dashed var(--pale);box-shadow:var(--shadow-strong);font-family:var(--head);font-weight:700}
+#hold1, #hold2, #hold3{background-color:var(--navy);color:var(--white);border:4px dashed var(--teal-light);box-shadow:var(--shadow-strong);font-family:var(--head);font-weight:700}
+
+/* scenario builder (Scenario Tools > Custom) */
+#builder{background:var(--pale);color:var(--navy);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:12px 12px 0 0;box-shadow:var(--shadow-strong);font-family:var(--head);font-weight:600;max-width:calc(100vw - 20px)}
+#ic, #pv, #c2, #ps, #proc, #start{background:var(--pale);max-width:100%}
+#c2 div:hover, #ic div:hover, #ps div:hover, #pv div:hover{background-color:rgba(0,86,112,.18)}
+
+/* Add-On Scenario panel: start below the header and toolbar */
+#addonscenario{top:180px}
+
+/* attribution: Backdoors & Breaches / BHIS / deck partner (filled by deck-script.js) */
+#copyright{clear:both;position:relative;margin-top:400px;padding:28px 16px 34px;border-top:1px solid var(--line);text-align:center;font-family:var(--head);font-size:14px;color:var(--ink-soft)}
+#copyright .attr-text{margin:0 0 14px}
+#copyright .attr-logos{display:flex;justify-content:center;align-items:center;gap:20px 34px;flex-wrap:wrap}
+/* the two BHIS logos stacked; the deck partner logo (ours, or Antisyphon for the Core Deck) as tall as both together.
+   The BHIS logo files carry transparent margins (the B&B logo about 20% top and bottom): the boxes crop those
+   margins with background-size, so the visible logos line up: 46 + 10 + 50 = 106 px, our logo 106 px. */
+#copyright .attr-bhis{display:flex;flex-direction:column;align-items:center;gap:10px}
+#copyright .attr-partner{padding-left:34px;border-left:1px solid var(--line)}
+#bb, #bh{float:none;width:180px;background-position:center}
+#bb{height:46px;background-size:auto 76px}
+#bh{height:50px;background-size:auto 56px}
+.sponsor{float:none;width:248px;height:106px;background-position:center}
+
+/* lightbox: navy instead of black behind the enlarged card */
+.lightboxOverlay{background-color:var(--navy)}
+.lb-data .lb-caption a{color:var(--white)}
+
+/* on wide screens the Incident Captain controls stay fixed bottom right: give the footer room underneath */
+@media (min-width:768px){
+  .game .site-foot{padding-bottom:150px}
+}
+
+/* phones and small tablets: the game was built for 1920x1080. Below 768px the floating panels
+   join the page flow (no dragging), the four scenario cards sit in a 2x2 grid and the tokens are hidden. */
+@media (max-width:767px){
+  body.game{font-size:14px}
+  #viewrecright{display:none}
+  .game .form-popup{left:var(--gutter);right:var(--gutter)}
+  .game .form-container{max-width:none}
+
+  #solution{position:static;margin:14px var(--gutter) 0;max-width:none;box-shadow:var(--shadow)}
+  #dm_solution .solution{width:50%;max-width:none}
+  #dm_solution img{max-width:100%}
+
+  .game .title{margin-top:26px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:6px var(--gutter) 0;background-size:contain}
+  .cards > br{display:none}
+  .cards__single{width:auto;max-width:none;margin-top:0}
+  .cards__front img{width:100%;height:auto;display:block}
+  .init{height:auto;aspect-ratio:415/295}
+
+  .establishedprocs{height:auto;padding:6px var(--gutter);background-size:contain;overflow:hidden}
+  .otherprocs{padding:0 var(--gutter);overflow:hidden}
+  .proc, .otherprocs .proc{width:calc(50% - 10px);height:auto;aspect-ratio:2/1;margin:0 5px 10px}
+  .procimg, .otherprocs .procimg{width:100%}
+
+  #mydiv, #injectdiv, #dicebox, #initinject, #consultantdiv, #gmnotes, #addonscenario{position:static !important;width:auto !important;min-width:0;margin:16px var(--gutter)}
+  #gmnotes textarea{width:calc(100% - 20px);box-sizing:border-box}
+  .inject img, .consultant img, #injectbox .inject img{height:auto;max-width:100%;max-height:420px}
+  #addonscenario .addons{width:auto;margin:0 0 10px}
+
+  #counter1, #counter2, #counter3, #hold1, #hold2, #hold3{display:none}
+
+  #builder{width:auto;left:0;right:0;max-width:none;height:62vh}
+  #ic, #pv, #c2, #ps, #proc, #start{width:auto}
+  #proc img, #ic img, #ps img, #pv img, #c2 img, #start img{max-width:140px}
+  div[id^='inj_'], div[id^='ic_'], div[id^='ps_'], div[id^='pv_'], div[id^='c2_']{width:140px;height:auto}
+
+  .wg-bands .cards, .wg-bands .establishedprocs{background-size:auto 90px, 100% 90px}
+  #copyright{margin-top:24px}
+  #copyright .attr-logos{gap:16px}
+  #copyright .attr-bhis{gap:7px}
+  #copyright .attr-partner{padding-left:16px}
+  #bb, #bh{width:117px}
+  #bb{height:30px;background-size:auto 50px}
+  #bh{height:33px;background-size:auto 37px}
+  .sponsor{width:164px;height:70px}
+}
+
+/* labels above the two rows of Detections */
+.game .proc-label{margin:10px 0 8px;padding:0 var(--gutter);font-family:var(--head);font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);text-align:left}
+.game .proc-label span{margin-left:8px;font-weight:500;letter-spacing:.04em;text-transform:none;color:var(--ink-soft)}
