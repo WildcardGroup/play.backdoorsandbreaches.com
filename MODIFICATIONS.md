@@ -25,7 +25,7 @@ Wildcard Group, 18 October 2026:
 6. **Attribution**: the attribution block under the game now also states "Backdoors & Breaches is the property of Black Hills InfoSec." (`App/deck-script.js`); the landing page and the footer of both pages carry the same sentence, a link to the upstream repository and to this file.
 7. **Landing page** (`index.html`) rewritten: two deck tiles, a short explanation of the game and the BHIS attribution.
 8. **Phone helper** (`App/index.html`): on narrow screens a panel opened from the Incident Captain controls scrolls into view.
-9. **Prototype markers**: `<meta name="robots" content="noindex,nofollow">` and a "Prototype" label. Remove both when the site goes live.
+9. **Prototype markers**: `<meta name="robots" content="noindex,nofollow">` and a "Prototype" label. Both removed on 20 October 2026 for the launch (see item 21).
 10. **Attribution logos** (`App/deck-script.js`, `App/wildcard-game.css`, `index.html`): the Backdoors & Breaches and BHIS logos are stacked, and the deck partner logo is as tall as the two together. The BHIS logo files are unchanged; their transparent margins are cropped in CSS. The landing page shows the same row with the Wildcard Group logo.
 11. **Background watermark** (`assets/wildcard.css`, `assets/wg-mark.png`): a large, faint Wildcard Group mark behind the content, partly off the right edge. It sits behind all cards, panels and controls.
 12. **Favicon**: `favicon.ico` is the Wildcard Group icon (the BHIS favicon is not included).
@@ -38,6 +38,7 @@ Wildcard Group, 18 October 2026:
 18. **Short links** (`wildcard/index.html`, `core/index.html`): `/wildcard/` and `/core/` open the game with the Core V3.1 + Wildcard Group expansion deck or the Core Deck V3.1 preselected.
 19. **Netlify headers** (`_headers`): `LICENSE` and the `.md` notes are served as plain text, basic security headers, card images cached for a day. The "Prototype" label now reads "Preview".
 20. **Public source** (20 October 2026): this modified version is published at https://github.com/WildcardGroup/play.backdoorsandbreaches.com, linked from the footer of both pages. `README.md` starts with a section on this edition and its credits to BHIS; the original README follows unchanged.
+21. **Launch** (20 October 2026, `index.html`, `App/index.html`): the `noindex` robots tag and the "Preview" label are removed. The short-link pages `/wildcard/` and `/core/` keep their `noindex` on purpose, so search engines list the main pages instead.
 
 Files marked with a "Modified by Wildcard Group" comment: `index.html`, `play.backdoorsandbreaches.com-Engine-V1/App/index.html`, `App/deck-script.js`, `App/dice-script.js`. Also changed: `README.md` (new section at the top). New files: `MODIFICATIONS.md`, `favicon.ico`, `_headers`, `wildcard/index.html`, `core/index.html`, `assets/*`, `App/wildcard-game.css`, `App/decks/WildcardGroup/*`. All other files are as in the upstream commit above.
 
