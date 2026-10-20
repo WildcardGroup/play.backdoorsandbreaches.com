@@ -21,16 +21,17 @@ body.game{margin:0;background:var(--white);background-image:none;color:var(--ink
 .game .form-container .cancel, #clearIC, #clearPE, #clearCE, #clearPER{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
 .game .form-container .cancel:hover, #clearIC:hover, #clearPE:hover, #clearCE:hover, #clearPER:hover{background:var(--navy);color:var(--white)}
 
-/* toolbar under the header: deck name, rev date, deck selector (the old top-left and top-right boxes) */
+/* toolbar under the header: home link, deck name, rev date, deck selector, how to play (the old top-left box; the top-right box "Best viewed at 1920x1080" is gone) */
 .game .toolbar{background:var(--pale);border-bottom:1px solid var(--line)}
 .game .toolbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;min-height:54px;padding-top:8px;padding-bottom:8px;position:relative}
-#viewrec, #viewrecright{position:static;width:auto;background:none;border-radius:0;box-shadow:none;padding:0;font-size:14px;z-index:auto}
+#viewrec{position:static;width:auto;background:none;border-radius:0;box-shadow:none;padding:0;font-size:14px;z-index:auto}
 #viewrec{display:flex;align-items:center;flex-wrap:wrap;gap:6px 16px}
 #viewrec .tb-home{font-weight:700;color:var(--navy);text-decoration:none}
 #viewrec .tb-home:hover{color:var(--teal)}
+#viewrec .tb-how{font-family:var(--head);font-weight:600;color:var(--teal)}
+#viewrec .tb-how:hover{color:var(--navy)}
 #version, #date{color:var(--ink-soft)}
 #version{font-weight:600;color:var(--navy)}
-#viewrecright{color:var(--ink-soft);font-size:13px}
 #deckselectoropen{margin:0}
 .game .form-popup{position:absolute;top:calc(100% + 6px);left:var(--gutter);z-index:100}
 .game .form-container{max-width:360px;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:10px;box-shadow:var(--shadow-strong);padding:16px 18px;font-family:var(--head);font-size:14px;font-weight:600;color:var(--navy);line-height:2}
@@ -57,10 +58,10 @@ body.game{margin:0;background:var(--white);background-image:none;color:var(--ink
    The SVGs are made by tools/genereer_banden.py (outside site/).
    Back to the original bands: remove the class "wg-bands" from <body> in App/index.html; nothing else changes. */
 .wg-bands .cards, .wg-bands #addonscenario .expcards{background:
-  url("../../assets/wg-band-scenario.svg?v=20261020a") center / auto 125px no-repeat,
+  url("../../assets/wg-band-scenario.svg?v=20261020c") center / auto 125px no-repeat,
   linear-gradient(var(--teal) 0 2px, var(--navy) 2px calc(100% - 2px), var(--teal) calc(100% - 2px)) center / 100% 125px no-repeat}
 .wg-bands .establishedprocs{background:
-  url("../../assets/wg-band-detections.svg?v=20261020a") center / auto 125px no-repeat,
+  url("../../assets/wg-band-detections.svg?v=20261020c") center / auto 125px no-repeat,
   linear-gradient(var(--navy) 0 2px, var(--teal) 2px calc(100% - 2px), var(--navy) calc(100% - 2px)) center / 100% 125px no-repeat}
 
 /* moving bands (wildcard-bands.js, Tom 18/10): the hero's wave bundle, animated, slow and faint.
@@ -133,7 +134,6 @@ body.game{margin:0;background:var(--white);background-image:none;color:var(--ink
    join the page flow (no dragging), the four scenario cards sit in a 2x2 grid and the tokens are hidden. */
 @media (max-width:767px){
   body.game{font-size:14px}
-  #viewrecright{display:none}
   .game .form-popup{left:var(--gutter);right:var(--gutter)}
   .game .form-container{max-width:none}
 

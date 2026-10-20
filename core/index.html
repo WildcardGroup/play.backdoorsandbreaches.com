@@ -6,10 +6,26 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
+<!-- link preview when the page is shared (LinkedIn, WhatsApp, Teams, Slack ...); same image as wildcardgroup.be/deck -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wildcard Group">
+<meta property="og:title" content="Play Backdoors &amp; Breaches online: Core Deck V3.1">
+<meta property="og:description" content="The incident response card game by Black Hills Information Security, in your browser, with the Core Deck V3.1. By Wildcard Group.">
+<meta property="og:url" content="https://play.wildcardgroup.be/core/">
+<meta property="og:image" content="https://play.wildcardgroup.be/assets/og-play.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three cards of the Wildcard Group expansion for Backdoors &amp; Breaches">
+<meta name="twitter:card" content="summary_large_image">
 <title>Backdoors &amp; Breaches online: Core Deck V3.1</title>
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta http-equiv="refresh" content="0; url=../play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=CoreV3.1">
-<script>location.replace("../play.backdoorsandbreaches.com-Engine-V1/App/index.html?deck=CoreV3.1" + location.hash);</script>
+<script>
+// keeps ?src= and the referring site for the statistics on the game page (assets/wg-analytics.js, 20 October 2026)
+var q = new URLSearchParams(location.search); q.set("deck", "CoreV3.1");
+try { var r = document.referrer && new URL(document.referrer).hostname; if (r && r !== location.hostname) sessionStorage.setItem("wg_play_src", r); } catch (e) {}
+location.replace("../play.backdoorsandbreaches.com-Engine-V1/App/index.html?" + q + location.hash);
+</script>
 <style>body{margin:0;padding:40px 16px;font-family:Arial,sans-serif;color:#0B2641;background:#FFFFFF;text-align:center}a{color:#005670}</style>
 </head>
 <body>

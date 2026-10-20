@@ -42,7 +42,7 @@
 /* faint Wildcard mark in the background, as on the one-pagers and in the service portfolio (Tom, 18/10):
    the teal icon (OFFICIAL_APPROVED_LOGO/LOGO_3_ICON_teal) at low opacity, large and partly off the right edge.
    z-index -1 keeps it behind every card, panel and button: it only shows in the white space. */
-body.wg::before{content:"";position:fixed;z-index:-1;pointer-events:none;top:16vh;right:-13vw;width:min(60vw,940px);aspect-ratio:1000/723;background:url("wg-mark.png?v=20261020a") no-repeat center/contain;opacity:.06}
+body.wg::before{content:"";position:fixed;z-index:-1;pointer-events:none;top:16vh;right:-13vw;width:min(60vw,940px);aspect-ratio:1000/723;background:url("wg-mark.png?v=20261020c") no-repeat center/contain;opacity:.06}
 
 /* header: the same bar as wildcardgroup.be/deck (navy, thin teal line, logo with Digital Guardian) */
 .wg .nav{background:var(--navy);border-bottom:2px solid var(--teal-line)}

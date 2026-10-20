@@ -5,12 +5,25 @@
   Modified by Wildcard Group, 18 October 2026: Wildcard Group header, toolbar, footer and styling (wildcard-game.css);
   deck selector reduced to Core V3.1 and Core V3.1 + Wildcard Group expansion; labels use the BHIS Visual Guide v6
   terms; Google Fonts replaced by self-hosted Archivo and Source Serif 4. See MODIFICATIONS.md in the site root.
+  20 October 2026: visit statistics with Plausible (assets/wg-analytics.js), no change to the game engine.
   Backdoors & Breaches is the property of Black Hills InfoSec.
 -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <!-- link preview when the page is shared (LinkedIn, WhatsApp, Teams, Slack ...); same image as wildcardgroup.be/deck -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wildcard Group">
+  <meta property="og:title" content="Play Backdoors &amp; Breaches online, with the Wildcard Group expansion">
+  <meta property="og:description" content="The incident response card game by Black Hills Information Security, in your browser: the Core Deck, or the Core Deck with the Wildcard Group expansion.">
+  <meta property="og:url" content="https://play.wildcardgroup.be/">
+  <meta property="og:image" content="https://play.wildcardgroup.be/assets/og-play.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Three cards of the Wildcard Group expansion for Backdoors &amp; Breaches">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Backdoors &amp; Breaches online | Wildcard Group</title>
   <link rel="icon" type="image/png" href="../../assets/favicon.png">
   <link rel="stylesheet" href="styles.css" >
@@ -18,8 +31,15 @@
   <link rel="stylesheet" href="deck-styles.css" >
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <link href="lightbox.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/wildcard.css?v=20261020a">
-  <link rel="stylesheet" href="wildcard-game.css?v=20261020a">
+  <link rel="stylesheet" href="../../assets/wildcard.css?v=20261020c">
+  <link rel="stylesheet" href="wildcard-game.css?v=20261020c">
+<!-- Privacy-friendly analytics by Plausible: EU-hosted, no cookies, no personal data. Pageviews and the game events: assets/wg-analytics.js -->
+<script async src="https://plausible.io/js/pa-fK-lOytgH4EuVhp2lE8GB.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init({ autoCapturePageviews: false }); // the pageview comes from assets/wg-analytics.js
+</script>
+<script defer src="../../assets/wg-analytics.js?v=20261020q"></script>
     </head>
 <!-- "wg-bands" switches on the Wildcard Group bands; remove it to get the original Backdoors & Breaches bands back -->
 <body class="wg game wg-bands">
@@ -37,9 +57,11 @@
   <div class="toolbar">
   <div class="wrap">
   <div id="viewrec">
-   <a class="tb-home" href="../../index.html">Backdoors &amp; Breaches online</a>
+   <a class="tb-home" href="../../index.html">&larr; Wildcard Group game home</a>
    <div id="version">Deck: </div><div id="date">Rev. date: </div>
       <button id="deckselectoropen" class="open-button" onclick="opendeckselector()">Choose deck</button>
+   <!-- opens in a new tab, so a game in progress is not lost -->
+   <a class="tb-how" href="../../index.html#how" target="_blank" rel="noopener">How to play</a>
   </div>
   <div class="form-popup" id="myForm">
           <form class="form-container" onsubmit="updatedeck(deck.value);">
@@ -52,10 +74,6 @@
           <button type="button" class="btn cancel" onclick="closedeckselector()">Close</button>
           </form>
       </div>
-  <!--recommendations-->
-  <div id="viewrecright">
-   Best viewed at 1920x1080 &middot; <a href="../../index.html">All decks</a>
-  </div>
   </div>
   </div>
   <div id="solution">
@@ -365,7 +383,7 @@
   <script type="text/javascript" src="ui-builder.js"></script>
   <script type="text/javascript" src="deck-script.js"></script>
   <!-- Wildcard Group: moving wave bundle in the two bands (falls back to the static bands) -->
-  <script type="text/javascript" src="wildcard-bands.js?v=20261020a"></script>
+  <script type="text/javascript" src="wildcard-bands.js?v=20261020c"></script>
 
   <script type="text/javascript">
   // Wildcard Group (18 October 2026): on phones the panels sit in the page flow, far below the
