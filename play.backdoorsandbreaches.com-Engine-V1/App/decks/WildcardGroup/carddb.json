@@ -438,11 +438,11 @@
             "details": "<a target=\"_blank\" href=\"https://wildcardgroup.be/deck/\">https://wildcardgroup.be/deck/</a>"
         }
     ],
-    "red": "img/bb-back-init.png",
-    "yellow": "img/bb-back-pivot.png",
-    "brown": "img/bb-back-c2.png",
-    "purple": "img/bb-back-persist.png",
-    "grey": "img/bb-back-inject.png",
+    "red": "decks/WildCard/CARD_BACK_NRECA_RED.png",
+    "yellow": "decks/WildCard/CARD_BACK_NRECA_YELLOW.png",
+    "brown": "decks/WildCard/CARD_BACK_NRECA_BROWN.png",
+    "purple": "decks/WildCard/CARD_BACK_NRECA_PURPLE.png",
+    "grey": "decks/WildCard/CARD_BACK_NRECA_GREY.png",
     "green": "",
     "logo": "decks/WildcardGroup/wildcard-logo.png"
 }
