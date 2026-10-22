@@ -35,7 +35,8 @@ function opendeckselector() {
   }
   
   var selecteddeck;
-  
+  var DECK_DATA_VERSION = '20261022';
+
   //DECK LOADER
   // Modified by Wildcard Group (18 October 2026): this copy ships two decks, the Core Deck V3.1 and
   // the Core Deck plus the Wildcard Group expansion. A ?deck= parameter in the URL (used by the landing
@@ -66,6 +67,9 @@ function opendeckselector() {
         selecteddeck = 'CoreV3.1';
         cardlist = 'decks/CoreV3.1/carddb.json';
       }
+      // Wildcard Group, 22 October 2026: the deck folders are cached by browsers for a day (_headers), so the
+      // card list carries a version token. Raise DECK_DATA_VERSION whenever a carddb.json changes.
+      cardlist += '?v=' + DECK_DATA_VERSION;
       // tick the loaded deck in the deck selector
       $("input[name='deck'][value='" + selecteddeck + "']").prop("checked", true);
       try{
