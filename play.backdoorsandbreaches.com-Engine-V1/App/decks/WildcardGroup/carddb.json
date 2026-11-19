@@ -397,7 +397,7 @@
         },
         {
             "name": "This Was Safe to Run, Right? Right?!",
-            "image": "decks/WildcardGroup/WG_EXP-05.png",
+            "image": "decks/WildcardGroup/WG_EXP-05.png?v=20261119",
             "type": "inject",
             "id": "WG05",
             "details": "<a target=\"_blank\" href=\"https://wildcardgroup.be/deck/\">https://wildcardgroup.be/deck/</a>"

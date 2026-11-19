@@ -35,7 +35,7 @@ function opendeckselector() {
   }
   
   var selecteddeck;
-  var DECK_DATA_VERSION = '20261022';
+  var DECK_DATA_VERSION = '20261119';
 
   //DECK LOADER
   // Modified by Wildcard Group (18 October 2026): this copy ships two decks, the Core Deck V3.1 and
